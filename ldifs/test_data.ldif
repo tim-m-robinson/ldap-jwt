@@ -1,0 +1,58 @@
+# Base DN
+dn: dc=example,dc=org
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+dc: example
+o: ExampleOrg
+
+# Org Units
+dn: ou=users,dc=example,dc=org
+objectClass: organizationalUnit
+ou: users
+
+dn: ou=groups,dc=example,dc=org
+objectClass: organizationalUnit
+ou: groups
+
+# Users
+dn: uid=foo,ou=users,dc=example,dc=org
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: foo
+uid: foo
+uidNumber: 2001
+gidNumber: 100
+homeDirectory: /home/foo
+loginShell: /bin/bash
+userPassword: this_is_a_secret
+
+dn: uid=bar,ou=users,dc=example,dc=org
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: bar
+uid: bar
+uidNumber: 2002
+gidNumber: 100
+homeDirectory: /home/bar
+loginShell: /bin/bash
+userPassword: this_is_a_secret_too
+
+# Groups
+dn: cn=group01,ou=groups,dc=example,dc=org
+cn: group01
+objectClass: top
+objectClass: groupOfNames
+member: cn=foo
+member: cn=bar
+
+# Groups
+dn: cn=group02,ou=groups,dc=example,dc=org
+cn: group02
+objectClass: top
+objectClass: groupOfNames
+member: cn=foo
